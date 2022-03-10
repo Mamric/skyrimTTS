@@ -1,11 +1,6 @@
 import speech_recognition
 import pyttsx3
-import playsound
-from gtts import gTTS
 
-import random
-import pathlib
-import os
 
 def bot_speak(audio_string):
     '''Takes in a string and says it with tts, then logs with print'''
