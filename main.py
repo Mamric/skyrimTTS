@@ -8,11 +8,13 @@ import pathlib
 import os
 
 def bot_speak(audio_string):
+    '''Takes in a string and says it with tts, then logs with print'''
     engine.say(audio_string)
     engine.runAndWait()
     print(audio_string)
 
 def get_audio_from_mic(mic):
+    '''Takes in a speechrecognition mic and listens for audio'''
     recognizer.adjust_for_ambient_noise(mic)
     audio = recognizer.listen(mic)
     text = recognizer.recognize_google(audio)
@@ -27,7 +29,6 @@ if __name__ == "__main__":
         try:
             with speech_recognition.Microphone() as mic:
                 text = get_audio_from_mic(mic)
-
                 bot_speak(f"Recognized {text}")
         except speech_recognition.UnknownValueError:
         # except:
